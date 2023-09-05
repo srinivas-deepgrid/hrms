@@ -1,0 +1,245 @@
+{
+ "actions": [],
+ "autoname": "HR-ATTA-.YY.-.MM.-.#####",
+ "creation": "2023-07-23 15:23:36.516386",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee",
+  "amended_from",
+  "employee_name",
+  "department",
+  "company",
+  "date",
+  "previous_attendance_status",
+  "current_attendance_status",
+  "column_break_arwh8",
+  "shift",
+  "previous_in_time",
+  "previous_out_time",
+  "in_time",
+  "out_time",
+  "request_action",
+  "status",
+  "explanations_section",
+  "explanation",
+  "approvers_section",
+  "approver",
+  "hod_approver",
+  "cho_approver",
+  "approvers_status_section",
+  "reporting_incharge_status",
+  "hod_approver_status",
+  "cho_approver_status"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fetch_if_empty": 1,
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Attendance Application",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.department",
+   "fetch_if_empty": 1,
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.company",
+   "fetch_if_empty": 1,
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "previous_attendance_status",
+   "fieldtype": "Data",
+   "label": "Previous Attendance Status",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "current_attendance_status",
+   "fieldtype": "Select",
+   "label": "Current Attendance Status",
+   "options": "Present\nWork From Home\nHalf Day\nAbsent",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_arwh8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "shift",
+   "fieldtype": "Data",
+   "label": "Shift",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "previous_in_time",
+   "fieldtype": "Datetime",
+   "label": "Previous In Time",
+   "read_only": 1
+  },
+  {
+   "fieldname": "previous_out_time",
+   "fieldtype": "Datetime",
+   "label": "Previous Out Time",
+   "read_only": 1
+  },
+  {
+   "fieldname": "in_time",
+   "fieldtype": "Datetime",
+   "label": "In Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "out_time",
+   "fieldtype": "Datetime",
+   "label": "Out Time",
+   "reqd": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "request_action",
+   "fieldtype": "Select",
+   "label": "Request Action",
+   "options": "Draft\nApproved\nRejected\nApproved by HR\nRejected by HR\nApproved by CHO\nRejected by CHO\nApproved by Reporting Incharge\nRejected by Reporting Incharge\nApproved by HOD\nRejected by HOD\nAwaiting Reporting Incharge Approval\nAwaiting HOD Approval\nAwaiting CHO Approval\nAwaiting HR Approval",
+   "reqd": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Draft\nApproved\nRejected\nApproved by HR\nRejected by HR\nApproved by CHO\nRejected by CHO\nApproved by Reporting Incharge\nRejected by Reporting Incharge\nApproved by HOD\nRejected by HOD\nAwaiting Reporting Incharge Approval\nAwaiting HOD Approval\nAwaiting CHO Approval\nAwaiting HR Approval",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "explanations_section",
+   "fieldtype": "Section Break",
+   "label": "Explanations"
+  },
+  {
+   "fieldname": "explanation",
+   "fieldtype": "Small Text",
+   "label": "Explanation"
+  },
+  {
+   "fieldname": "approvers_section",
+   "fieldtype": "Section Break",
+   "label": "Approvers"
+  },
+  {
+   "fetch_from": "employee.reporting_incharge",
+   "fetch_if_empty": 1,
+   "fieldname": "approver",
+   "fieldtype": "Link",
+   "label": "Reporting Incharge",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.hod_approver",
+   "fetch_if_empty": 1,
+   "fieldname": "hod_approver",
+   "fieldtype": "Data",
+   "label": "HOD Approver",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.cho_approver",
+   "fetch_if_empty": 1,
+   "fieldname": "cho_approver",
+   "fieldtype": "Data",
+   "label": "CHO Approver",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approvers_status_section",
+   "fieldtype": "Section Break",
+   "label": "Approvers Status"
+  },
+  {
+   "fieldname": "reporting_incharge_status",
+   "fieldtype": "Data",
+   "label": "Reporting Incharge Status",
+   "read_only": 1
+  },
+  {
+   "fieldname": "hod_approver_status",
+   "fieldtype": "Data",
+   "label": "HOD Approver Status",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cho_approver_status",
+   "fieldtype": "Data",
+   "label": "CHO Approver Status",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-08-16 16:48:06.700931",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Attendance Application",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

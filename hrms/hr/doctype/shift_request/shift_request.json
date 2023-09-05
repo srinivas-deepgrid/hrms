@@ -1,0 +1,218 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "HR-SHR-.YY.-.MM.-.#####",
+ "creation": "2018-04-13 16:32:27.974273",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "shift_type",
+  "employee",
+  "employee_name",
+  "department",
+  "status",
+  "request_action",
+  "column_break_4",
+  "company",
+  "from_date",
+  "to_date",
+  "amended_from",
+  "approvers_section",
+  "approver",
+  "hod_approver",
+  "cho_approver",
+  "approvers_status_section",
+  "reporting_incharge_status",
+  "hod_approver_status",
+  "cho_approver_status"
+ ],
+ "fields": [
+  {
+   "fieldname": "shift_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Shift Type",
+   "options": "Shift Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.department",
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Shift Request",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Draft\nApproved\nRejected\nApproved by HR\nRejected by HR\nApproved by CHO\nRejected by CHO\nApproved by Reporting Incharge\nRejected by Reporting Incharge\nApproved by HOD\nRejected by HOD\nAwaiting Reporting Incharge Approval\nAwaiting HOD Approval\nAwaiting CHO Approval\nAwaiting HR Approval",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "employee.reporting_incharge",
+   "fetch_if_empty": 1,
+   "fieldname": "approver",
+   "fieldtype": "Link",
+   "label": "Reporting Incharge",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approvers_status_section",
+   "fieldtype": "Section Break",
+   "label": "Approvers Status"
+  },
+  {
+   "fieldname": "reporting_incharge_status",
+   "fieldtype": "Data",
+   "label": "Reporting Incharge Status",
+   "read_only": 1
+  },
+  {
+   "fieldname": "hod_approver_status",
+   "fieldtype": "Data",
+   "label": "HOD Approver Status",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cho_approver_status",
+   "fieldtype": "Data",
+   "label": "CHO Approver Status",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.cho_approver",
+   "fetch_if_empty": 1,
+   "fieldname": "cho_approver",
+   "fieldtype": "Data",
+   "label": "CHO Approver ",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.hod_approver",
+   "fetch_if_empty": 1,
+   "fieldname": "hod_approver",
+   "fieldtype": "Data",
+   "label": "HOD Approver",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approvers_section",
+   "fieldtype": "Section Break",
+   "label": "Approvers"
+  },
+  {
+   "fieldname": "request_action",
+   "fieldtype": "Select",
+   "label": "Request Action",
+   "options": "Draft\nApproved\nRejected\nApproved by HR\nRejected by HR\nApproved by CHO\nRejected by CHO\nApproved by Reporting Incharge\nRejected by Reporting Incharge\nApproved by HOD\nRejected by HOD\nAwaiting Reporting Incharge Approval\nAwaiting HOD Approval\nAwaiting CHO Approval\nAwaiting HR Approval",
+   "reqd": 1
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-08-03 11:02:16.520793",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Shift Request",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "employee_name",
+ "track_changes": 1
+}

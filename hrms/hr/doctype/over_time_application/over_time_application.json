@@ -1,0 +1,287 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-07-23 20:59:36.593406",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee",
+  "employee_name",
+  "department",
+  "company",
+  "is_over_time_applicable",
+  "date",
+  "is_holiday",
+  "attendance_status",
+  "over_time",
+  "column_break_hbpqw",
+  "shift",
+  "next_shift",
+  "ot_shift_1",
+  "shift_1_allowance",
+  "ot_shift_2",
+  "shift_2_allowance",
+  "ot_start_time",
+  "ot_end_time",
+  "request_action",
+  "status",
+  "explanations_section",
+  "explanation",
+  "approvers_section",
+  "approver",
+  "hod_approver",
+  "cho_approver",
+  "approvers_status_section",
+  "reporting_incharge_status",
+  "hod_approver_status",
+  "cho_approver_status",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Over Time Application",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "request_action",
+   "fieldtype": "Select",
+   "label": "Request Action",
+   "options": "Draft\nApproved\nRejected\nApproved by HR\nRejected by HR\nApproved by CHO\nRejected by CHO\nApproved by Reporting Incharge\nRejected by Reporting Incharge\nApproved by HOD\nRejected by HOD\nAwaiting Reporting Incharge Approval\nAwaiting HOD Approval\nAwaiting CHO Approval\nAwaiting HR Approval",
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Draft\nApproved\nRejected\nApproved by HR\nRejected by HR\nApproved by CHO\nRejected by CHO\nApproved by Reporting Incharge\nRejected by Reporting Incharge\nApproved by HOD\nRejected by HOD\nAwaiting Reporting Incharge Approval\nAwaiting HOD Approval\nAwaiting CHO Approval\nAwaiting HR Approval",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "approvers_section",
+   "fieldtype": "Section Break",
+   "label": "Approvers"
+  },
+  {
+   "fieldname": "approver",
+   "fieldtype": "Link",
+   "label": "Reporting Incharge",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.hod_approver",
+   "fetch_if_empty": 1,
+   "fieldname": "hod_approver",
+   "fieldtype": "Data",
+   "label": "HOD Approver",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.cho_approver",
+   "fieldname": "cho_approver",
+   "fieldtype": "Data",
+   "label": "CHO Approver",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approvers_status_section",
+   "fieldtype": "Section Break",
+   "label": "Approvers Status"
+  },
+  {
+   "fieldname": "reporting_incharge_status",
+   "fieldtype": "Data",
+   "label": "Reporting Incharge Status",
+   "read_only": 1
+  },
+  {
+   "fieldname": "hod_approver_status",
+   "fieldtype": "Data",
+   "label": "HOD Approver Status",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cho_approver_status",
+   "fieldtype": "Data",
+   "label": "CHO Approver Status",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fetch_if_empty": 1,
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.department",
+   "fetch_if_empty": 1,
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department",
+   "read_only": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "employee.over_time_applicable",
+   "fetch_if_empty": 1,
+   "fieldname": "is_over_time_applicable",
+   "fieldtype": "Check",
+   "label": "Is Over Time Applicable",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_holiday",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Holiday",
+   "read_only": 1
+  },
+  {
+   "fieldname": "attendance_status",
+   "fieldtype": "Data",
+   "label": "attendance_status",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "over_time",
+   "fieldtype": "Float",
+   "label": "Over Time",
+   "non_negative": 1,
+   "precision": "1",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_hbpqw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "shift",
+   "fieldtype": "Data",
+   "label": "Shift",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "next_shift",
+   "fieldtype": "Data",
+   "label": "Next Shift",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "ot_shift_1",
+   "fieldtype": "Data",
+   "label": "OT Shift 1",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "shift_1_allowance",
+   "fieldtype": "Check",
+   "label": " Shift 1 Allowance",
+   "read_only": 1
+  },
+  {
+   "fieldname": "ot_shift_2",
+   "fieldtype": "Data",
+   "label": "OT Shift 2",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "shift_2_allowance",
+   "fieldtype": "Check",
+   "label": " Shift 2 Allowance",
+   "read_only": 1
+  },
+  {
+   "fieldname": "ot_start_time",
+   "fieldtype": "Datetime",
+   "label": "OT Start Time",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "ot_end_time",
+   "fieldtype": "Datetime",
+   "label": "OT End Time",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "explanations_section",
+   "fieldtype": "Section Break",
+   "label": "Explanations"
+  },
+  {
+   "fieldname": "explanation",
+   "fieldtype": "Small Text",
+   "label": "Explanation"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-07-26 02:39:56.482873",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Over Time Application",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

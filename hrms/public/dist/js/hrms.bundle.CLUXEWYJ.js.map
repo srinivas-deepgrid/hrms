@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["frappe-html:/home/hrms/frappe-bench/apps/hrms/hrms/public/js/templates/employees_to_mark_attendance.html", "../../../../../apps/hrms/hrms/public/js/utils.js"],
+  "sourcesContent": ["\n\tfrappe.templates['employees_to_mark_attendance'] = `{% if data.length %}\n<div class=\"col-md-12 col-xs-12\">\n\t<div class=\"col-md-12 col-xs-12\" style=\"padding-bottom:15px;\">\n\t\t<b>Employees to mark attendance</b>\n\t</div>\n\t{% for item in data %}\n\t<div class=\"col-md-4 col-xs-6\" style=\"padding-bottom:10px;\">\n\t\t{{ item.employee }} &nbsp;&nbsp; {{ item.employee_name }}\n\t</div>\n\t{% } %}\n</div>\n{% } else { %}\n<div class=\"col-md-12 col-xs-12\">\n\t<div class=\"col-md-12 col-xs-12\" style=\"padding-bottom:15px;\">\n\t\t<b> Attendance records not found </b>\n\t</div>\n</div>\n{% } %}\n`;\n", "frappe.provide(\"hrms\");\nfrappe.provide(\"hrms.utils\");\n\n$.extend(hrms, {\n\tproceed_save_with_reminders_frequency_change: () => {\n\t\tfrappe.ui.hide_open_dialog();\n\t\tfrappe.call({\n\t\t\tmethod: 'hrms.hr.doctype.hr_settings.hr_settings.set_proceed_with_frequency_change',\n\t\t\tcallback: () => {\n\t\t\t\tcur_frm.save();\n\t\t\t}\n\t\t});\n\t}\n})"],
+  "mappings": ";;AACC,SAAO,UAAU,kCAAkC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;;ACDpD,SAAO,QAAQ,MAAM;AACrB,SAAO,QAAQ,YAAY;AAE3B,IAAE,OAAO,MAAM;AAAA,IACd,8CAA8C,MAAM;AACnD,aAAO,GAAG,iBAAiB;AAC3B,aAAO,KAAK;AAAA,QACX,QAAQ;AAAA,QACR,UAAU,MAAM;AACf,kBAAQ,KAAK;AAAA,QACd;AAAA,MACD,CAAC;AAAA,IACF;AAAA,EACD,CAAC;",
+  "names": []
+}
